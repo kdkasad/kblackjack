@@ -68,7 +68,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
                     print(f'You received: {player.cards[-1]}')
                     print(f'You now have: {player.cards}')
 
-        print('\n\n\n')
+        print('\n')
 
     # Locate dealer in players list
     dealer = next(filter(lambda p: isinstance(p, FakePlayer) and p.isDealer, players))
@@ -81,6 +81,10 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
     bestScore = 0
     winners = []
     for player in players:
+        # Print cards
+        print(player.reprWithCards())
+
+        # Check if player is winner
         score = player.handTotal()
         if score == bestScore:
             winners.append(player)
@@ -88,7 +92,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
             bestScore = score
             winners = [player]
 
-    print(f'Round over! Best score: {bestScore}')
+    print(f'\nRound over! Best score: {bestScore}')
     print('Winners:')
     for winner in winners:
         print('\t' + winner.reprWithCards())
