@@ -59,7 +59,6 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
                 continue
 
             if player.willHit():
-                print(f'***DEBUG*** player is hitting: {player}')
                 allPlayersStand = False
                 player.cards.append(deck.pop()) # deal card
                 if isinstance(player, RealPlayer):
