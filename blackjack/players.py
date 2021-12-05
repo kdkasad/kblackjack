@@ -84,7 +84,7 @@ class RealPlayer(Player):
         if self.handTotal() > 21:
             return False
 
-        choice = input('\nHit? (Y/n)').lower()
+        choice = input('\nHit? (Y/n) ').lower()
         if choice[0] == 'n':
             return False
         elif not choice or choice[0] == 'y':
