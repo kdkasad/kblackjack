@@ -98,6 +98,7 @@ def main():
     discarded = []
     players = []
 
+    # Dealer is added first so they're printed first during rounds
     players.append(FakePlayer(isDealer=True))
 
     try:
@@ -118,10 +119,10 @@ def main():
         print('Invalid number of players')
         exit(1)
 
-    dealCards(deck, 2, players)
-
     for i in range(rounds):
+        dealCards(deck, 2, players)
         print(f'======= ROUND {i + 1} =======\n')
         doRound(players, deck, discarded)
+        discardHands(discarded, players)
         if i + 1 < rounds:
             print('\n\n\n\n')
