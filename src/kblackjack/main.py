@@ -1,5 +1,5 @@
-from card import Card, Suit
-from players import Player, FakePlayer, RealPlayer
+from kblackjack.card import Card, Suit
+from kblackjack.players import Player, FakePlayer, RealPlayer
 import random
 
 def createDeck() -> list[Card]:
@@ -90,7 +90,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
     for winner in winners:
         print('\t' + winner.reprWithCards())
 
-if __name__ == '__main__':
+def main():
     deck = createDeck()
     discarded = []
     players = []

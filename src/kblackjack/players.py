@@ -1,5 +1,5 @@
 import itertools
-from card import Card
+from kblackjack.card import Card
 
 class Player:
     _idCounter = itertools.count()
