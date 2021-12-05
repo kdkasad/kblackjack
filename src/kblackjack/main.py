@@ -17,6 +17,9 @@ def dealCards(deck: list[Card], num: int, players: list[Player]) -> None:
     """
     for p in players:
         for _ in range(num):
+            if not deck:
+                print('\n\nDeck is empty! Ending game.')
+                exit(2)
             p.cards.append(deck.pop())
 
 def discardHands(discardList: list[Card], players: list[Player]) -> None:
@@ -60,7 +63,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
 
             if player.willHit():
                 allPlayersStand = False
-                player.cards.append(deck.pop()) # deal card
+                dealCards(deck, 1, [player])
                 if isinstance(player, RealPlayer):
                     print(f'You received: {player.cards[-1]}')
                     print(f'You now have: {player.cards}')
@@ -70,7 +73,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
     # Locate dealer in players list
     dealer = next(filter(lambda p: isinstance(p, FakePlayer) and p.isDealer, players))
     while dealer.willHit():
-        dealer.cards.append(deck.pop())
+        dealCards(deck, 1, [dealer])
 
     # At this point, all players have stood or busted, including the dealer
 
