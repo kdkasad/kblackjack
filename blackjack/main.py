@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
     try:
         numPlayers = int(input('How many fake players would you like? '))
-    except ValueError as e:
+    except ValueError:
         print('Invalid number of players')
         exit(1)
     for i in range(numPlayers):
@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
     try:
         rounds = int(input('How many rounds would you like to play? '))
-    except ValueError as e:
+    except ValueError:
         print('Invalid number of players')
         exit(1)
 
