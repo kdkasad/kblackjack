@@ -11,7 +11,7 @@ def createDeck() -> list[Card]:
     random.shuffle(deck)
     return deck
 
-def dealCards(num: int, players: list[Player]) -> None:
+def dealCards(deck: list[Card], num: int, players: list[Player]) -> None:
     """
     Deal the given number of cards to each player
     """
@@ -71,7 +71,7 @@ def doRound(players: list[Player], deck: list[Card], discarded: list[Card]) -> N
     # Locate dealer in players list
     dealer = next(filter(lambda p: isinstance(p, FakePlayer) and p.isDealer, players))
     while dealer.willHit():
-        dealCards(1, [dealer])
+        dealer.cards.append(deck.pop())
 
     # At this point, all players have stood or busted, including the dealer
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
         print('Invalid number of players')
         exit(1)
 
-    dealCards(2, players)
+    dealCards(deck, 2, players)
 
     for i in range(rounds):
         print(f'======= ROUND {i + 1} =======\n')
