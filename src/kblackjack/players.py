@@ -38,7 +38,7 @@ class Player:
             if c.rank != 'A':
                 sumWithoutAces += c.value
         gap = 21 - sumWithoutAces
-        if gap >= 11 + aceCount - 1:
+        if gap >= 11 + aceCount - 1 and aceCount >= 1:
             return sumWithoutAces + 11 + aceCount - 1
         else:
             return sumWithoutAces + aceCount
