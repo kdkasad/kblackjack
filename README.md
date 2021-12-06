@@ -31,7 +31,7 @@ $ kblackjack
 $ python -m kblackjack
 ```
 
-To run from within a python script, use the `kblackjack.run()` function:
+To run from within a Python script, use the `kblackjack.run()` function:
 
 ```python
 import kblackjack
