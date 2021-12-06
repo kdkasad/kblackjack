@@ -13,16 +13,21 @@ $ git clone https://git.kasad.com/kblackjack.git
 $ cd kblackjack
 $ python -m pip install .
 
-# OR
+# or
 
 $ python -m pip install git+https://git.kasad.com/kblackjack.git
 ```
 
 ## Running
 
-To run the blackjack simulator from the command line, simply invoke the `kblackjack` package:
+To run the blackjack simulator from the command line, either use the
+`kblackjack` console entry point or invoke the `kblackjack` package:
 
 ```sh
+$ kblackjack
+
+# or
+
 $ python -m kblackjack
 ```
 
